@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join Ugazo - Sign up for a sophisticated dating platform">
+  <title>Sign Up | Ugazo Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .content {
+      padding: 40px 30px;
+    }
+
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      gap: 10px;
+    }
+
+    .step {
+      flex: 1;
+      height: 4px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      transition: background 0.3s;
+    }
+
+    .step.active {
+      background: #667eea;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1a1a2e;
+      font-size: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+    }
+
+    .error {
+      color: #e74c3c;
+      font-size: 13px;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .error.show {
+      display: block;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    button {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .btn-next {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .btn-next:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-back {
+      background: #f0f0f0;
+      color: #1a1a2e;
+    }
+
+    .btn-back:hover {
+      background: #e0e0e0;
+    }
+
+    .form-section {
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer-text a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    .success-message {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #c3e6cb;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .age-note {
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    .restrictions-note {
+      background: #f8f9ff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border-left: 4px solid #667eea;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        border-radius: 15px;
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .content {
+        padding: 30px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Ugazo</h1>
+      <p>Create Your Profile</p>
+    </div>
+
+    <div class="content">
+      <div class="step-indicator">
+        <div class="step active" id="step1"></div>
+        <div class="step" id="step2"></div>
+      </div>
+
+      <form id="signupForm">
+        <!-- Step 1: Basic Info -->
+        <div class="form-section active" id="section1">
+          <h3 style="margin-bottom: 20px; color: #1a1a2e; font-size: 18px;">Personal Information</h3>
+          
+          <div class="restrictions-note">
+            ⚠️ <strong>Platform Policy:</strong> Uganda-based users must be Female. European users must be Male. You must be 18+ years old.
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country *</label>
+            <select id="country" required>
+              <option value="">Select your country</option>
+              <option value="Uganda">Uganda</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="UK">United Kingdom</option>
+              <option value="Italy">Italy</option>
+              <option value="Spain">Spain</option>
+              <option value="Netherlands">Netherlands</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Austria">Austria</option>
+              <option value="Switzerland">Switzerland</option>
+            </select>
+            <div class="error" id="countryError"></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="gender">Gender *</label>
+              <select id="gender" required>
+                <option value="">Select gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+              <div class="error" id="genderError"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="birthdate">Date of Birth *</label>
+              <input type="date" id="birthdate" required>
+              <div class="error" id="birthdateError"></div>
+              <div class="age-note">You must be at least 18 years old</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" placeholder="John" required>
+            <div class="error" id="firstNameError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" placeholder="Doe" required>
+            <div class="error" id="lastNameError"></div>
+          </div>
+
+          <button type="button" class="btn-next" onclick="nextStep()">Continue</button>
+        </div>
+
+        <!-- Step 2: Contact Info -->
+        <div class="form-section" id="section2">
+          <h3 style="margin-bottom: 20px; color: #1a1a2e; font-size: 18px;">Account Details</h3>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+            <div class="error" id="emailError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password *</label>
+            <input type="password" id="password" placeholder="Create a strong password" required>
+            <div class="error" id="passwordError"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password *</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            <div class="error" id="confirmPasswordError"></div>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="terms" required>
+              <label for="terms">I agree to the Terms & Conditions and Privacy Policy</label>
+            </div>
+            <div class="error" id="termsError"></div>
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="btn-back" onclick="previousStep()">Back</button>
+            <button type="submit" class="btn-next">Create Account</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="success-message" id="successMessage">
+        ✓ Account created successfully! Redirecting to login...
+      </div>
+
+      <div class="footer-text">
+        Already have an account? <a href="login.html">Log in here</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = 'http://localhost:5000';
+    let currentStep = 1;
+
+    function nextStep() {
+      if (validateStep1()) {
+        currentStep = 2;
+        updateStepIndicator();
+        showSection(2);
+      }
+    }
+
+    function previousStep() {
+      currentStep = 1;
+      updateStepIndicator();
+      showSection(1);
+    }
+
+    function showSection(step) {
+      document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+      document.getElementById(`section${step}`).classList.add('active');
+    }
+
+    function updateStepIndicator() {
+      document.getElementById('step1').classList.toggle('active', currentStep >= 1);
+      document.getElementById('step2').classList.toggle('active', currentStep >= 2);
+    }
+
+    function validateStep1() {
+      let isValid = true;
+      const country = document.getElementById('country').value;
+      const gender = document.getElementById('gender').value;
+      const birthdate = document.getElementById('birthdate').value;
+
+      clearErrors();
+
+      if (!country) {
+        showError('countryError', 'Please select a country');
+        isValid = false;
+      }
+
+      if (!gender) {
+        showError('genderError', 'Please select your gender');
+        isValid = false;
+      }
+
+      // Validate country-gender restrictions
+      if (country === 'Uganda' && gender === 'Male') {
+        showError('genderError', 'Only females can register from Uganda');
+        isValid = false;
+      }
+
+      if (country !== 'Uganda' && gender === 'Female') {
+        showError('genderError', 'Only males can register from European countries');
+        isValid = false;
+      }
+
+      if (!birthdate) {
+        showError('birthdateError', 'Please select your date of birth');
+        isValid = false;
+      } else {
+        const age = calculateAge(new Date(birthdate));
+        if (age < 18) {
+          showError('birthdateError', 'You must be at least 18 years old');
+          isValid = false;
+        }
+      }
+
+      if (!document.getElementById('firstName').value.trim()) {
+        showError('firstNameError', 'Please enter your first name');
+        isValid = false;
+      }
+
+      if (!document.getElementById('lastName').value.trim()) {
+        showError('lastNameError', 'Please enter your last name');
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function validateStep2() {
+      let isValid = true;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const terms = document.getElementById('terms').checked;
+
+      clearErrors();
+
+      if (!email) {
+        showError('emailError', 'Please enter your email');
+        isValid = false;
+      } else if (!isValidEmail(email)) {
+        showError('emailError', 'Please enter a valid email address');
+        isValid = false;
+      }
+
+      if (!password) {
+        showError('passwordError', 'Please create a password');
+        isValid = false;
+      } else if (password.length < 6) {
+        showError('passwordError', 'Password must be at least 6 characters');
+        isValid = false;
+      }
+
+      if (password !== confirmPassword) {
+        showError('confirmPasswordError', 'Passwords do not match');
+        isValid = false;
+      }
+
+      if (!terms) {
+        showError('termsError', 'Please agree to the terms and conditions');
+        isValid = false;
+      }
+
+      return isValid;
+    }
+
+    function showError(elementId, message) {
+      const error = document.getElementById(elementId);
+      error.textContent = message;
+      error.classList.add('show');
+    }
+
+    function clearErrors() {
+      document.querySelectorAll('.error').forEach(e => {
+        e.classList.remove('show');
+        e.textContent = '';
+      });
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function calculateAge(birthDate) {
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validateStep2()) return;
+
+      const formData = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        country: document.getElementById('country').value,
+        gender: document.getElementById('gender').value,
+        birthdate: document.getElementById('birthdate').value
+      };
+
+      try {
+        const response = await fetch(`${API_URL}/api/auth/signup`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          document.getElementById('signupForm').style.display = 'none';
+          document.getElementById('successMessage').classList.add('show');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 2000);
+        } else {
+          showError('emailError', data.message || 'Signup failed');
+        }
+      } catch (error) {
+        showError('emailError', 'Network error. Please try again.');
+      }
+    });
+
+    // Format birthdate input
+    document.getElementById('birthdate').addEventListener('change', () => {
+      const birthdate = document.getElementById('birthdate').value;
+      if (birthdate) {
+        const age = calculateAge(new Date(birthdate));
+        const birthdateError = document.getElementById('birthdateError');
+        if (age < 18) {
+          showError('birthdateError', 'You must be at least 18 years old');
+        } else {
+          birthdateError.classList.remove('show');
+        }
+      }
+    });
+  </script>
+</body>
+</html>

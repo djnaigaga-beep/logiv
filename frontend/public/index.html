@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="Ugazo Premium - An exclusive dating platform connecting sophisticated Ugandan women with accomplished European men. Build meaningful connections.">
+  <meta name="keywords" content="premium dating, luxury dating, Uganda, Europe, relationships, singles, connections, upscale dating">
+  <meta name="theme-color" content="#667eea">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta property="og:title" content="Ugazo Premium - Sophisticated Connections">
+  <meta property="og:description" content="Build meaningful relationships connecting Ugandan women and European men">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="%PUBLIC_URL%/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ugazo Premium - Sophisticated Connections">
+  <meta name="twitter:description" content="Build meaningful relationships on Ugazo">
+  
+  <title>Ugazo Premium | Sophisticated Dating Platform</title>
+  
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico">
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #1a1a2e;
+      line-height: 1.6;
+      letter-spacing: -0.4px;
+    }
+    
+    #root {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Loading Container */
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated Background Elements */
+    .bg-element {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .bg-element-1 {
+      width: 300px;
+      height: 300px;
+      background: white;
+      top: -100px;
+      left: -100px;
+      animation-delay: 0s;
+    }
+
+    .bg-element-2 {
+      width: 200px;
+      height: 200px;
+      background: white;
+      bottom: -80px;
+      right: -80px;
+      animation-delay: 2s;
+    }
+
+    .bg-element-3 {
+      width: 150px;
+      height: 150px;
+      background: white;
+      top: 50%;
+      right: 10%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(20px);
+      }
+    }
+
+    /* Loading Content */
+    .loading-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Logo/Brand */
+    .loading-brand {
+      margin-bottom: 40px;
+      animation: scaleIn 0.6s ease-out 0.2s both;
+    }
+
+    .loading-brand h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .loading-brand p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Spinner */
+    .spinner-wrapper {
+      margin: 50px 0 40px 0;
+      animation: slideDown 0.6s ease-out 0.3s both;
+    }
+
+    .spinner {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .spinner::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: spin 2s linear infinite;
+    }
+
+    .spinner::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid transparent;
+      border-top-color: white;
+      border-right-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: spin 1.5s linear infinite reverse;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Loading Text */
+    .loading-text {
+      animation: slideUp 0.6s ease-out 0.4s both;
+    }
+
+    .loading-text h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .loading-text p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      line-height: 1.5;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Progress Indicator */
+    .progress-dots {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      animation: slideUp 0.6s ease-out 0.5s both;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .dot:nth-child(1) { animation-delay: 0s; }
+    .dot:nth-child(2) { animation-delay: 0.3s; }
+    .dot:nth-child(3) { animation-delay: 0.6s; }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .bg-element {
+        display: none;
+      }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .loading-brand h1 {
+        font-size: 40px;
+      }
+
+      .loading-brand p {
+        font-size: 14px;
+      }
+
+      .loading-text h2 {
+        font-size: 18px;
+      }
+
+      .loading-text p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .loading-brand h1 {
+        font-size: 32px;
+      }
+
+      .loading-brand p {
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+
+      .loading-container {
+        padding: 20px;
+      }
+
+      .spinner {
+        width: 48px;
+        height: 48px;
+      }
+
+      .spinner-wrapper {
+        margin: 30px 0 25px 0;
+      }
+
+      .loading-text h2 {
+        font-size: 16px;
+      }
+
+      .loading-text p {
+        font-size: 12px;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+      }
+      .spinner-wrapper,
+      .progress-dots {
+        display: none;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <noscript>
+    <div style="
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Verdana, sans-serif;
+      text-align: center;
+      padding: 20px;
+    ">
+      <div>
+        <h1 style="font-size: 42px; margin-bottom: 15px; font-weight: 700; letter-spacing: -1px;">Ugazo Premium</h1>
+        <p style="font-size: 18px; margin-bottom: 15px; font-weight: 500; letter-spacing: 0.5px;">Sophisticated Connections</p>
+        <p style="font-size: 14px; opacity: 0.9; line-height: 1.6;">JavaScript is required to experience Ugazo. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </div>
+  </noscript>
+
+  <div id="root">
+    <div class="loading-container">
+      <!-- Animated Background Elements -->
+      <div class="bg-element bg-element-1"></div>
+      <div class="bg-element bg-element-2"></div>
+      <div class="bg-element bg-element-3"></div>
+
+      <!-- Loading Content -->
+      <div class="loading-content">
+        <!-- Brand Section -->
+        <div class="loading-brand">
+          <h1>Ugazo Premium</h1>
+          <p>Sophisticated Connections Worldwide</p>
+        </div>
+
+        <!-- Spinner -->
+        <div class="spinner-wrapper">
+          <div class="spinner"></div>
+        </div>
+
+        <!-- Loading Text -->
+        <div class="loading-text">
+          <h2>Preparing Your Experience</h2>
+          <p>Connecting you with meaningful relationships</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schema Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "WebApplication",
+    "name": "UGAZ0",
+    "description": "An exclusive dating platform connecting sophisticated Ugandan women with accomplished European men for meaningful relationships",
+    "url": "https://ugazo.com",
+    "applicationCategory": "SocialNetworking",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "2500"
+    }
+  }
+  </script>
+</body>
+</html>

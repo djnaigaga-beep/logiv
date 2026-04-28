@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ugazo Premium - A sophisticated dating platform connecting accomplished women and men across Africa and Europe for meaningful relationships.">
+  <meta name="keywords" content="premium dating, sophisticated dating, Africa, Europe, meaningful relationships, professional singles">
+  <meta property="og:title" content="Ugazo Premium - Sophisticated Global Connections">
+  <meta property="og:description" content="Connect with accomplished professionals for meaningful relationships">
+  <meta property="og:type" content="website">
+  
+  <title>Ugazo Premium - Sophisticated Dating Platform | Global Connections</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #1a1a2e;
+      min-height: 100vh;
+      letter-spacing: -0.3px;
+    }
+
+    .landing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      text-align: center;
+      color: white;
+      margin-bottom: 100px;
+      padding-top: 60px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    header .tagline {
+      font-size: 22px;
+      font-weight: 300;
+      opacity: 0.95;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    header .subtitle {
+      font-size: 16px;
+      opacity: 0.85;
+      margin-bottom: 45px;
+      font-weight: 300;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      padding: 16px 48px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      text-decoration: none;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #667eea;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: white;
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .trust-badges {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ===== FEATURES ===== */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      margin-top: 100px;
+      animation: fadeIn 1s ease-out 0.4s both;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 56px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .feature-card h3 {
+      color: #667eea;
+      font-size: 22px;
+      margin-bottom: 15px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.8;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .how-it-works {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 80px 40px;
+      border-radius: 20px;
+      color: white;
+      margin: 120px 0;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      animation: fadeIn 1s ease-out 0.6s both;
+    }
+
+    .how-it-works h2 {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 60px;
+      letter-spacing: -1px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .step {
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-8px);
+    }
+
+    .step-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 52px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: -1px;
+    }
+
+    .step h4 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .step p {
+      font-size: 15px;
+      opacity: 0.85;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* ===== PAGES INFO ===== */
+    .pages-info {
+      background: white;
+      padding: 60px 50px;
+      border-radius: 20px;
+      margin: 120px 0;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+      animation: fadeIn 1s ease-out 0.8s both;
+    }
+
+    .pages-info h2 {
+      color: #667eea;
+      font-family: 'Poppins', sans-serif;
+      font-size: 40px;
+      margin-bottom: 50px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .pages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+    }
+
+    .page-item {
+      border-left: 5px solid #667eea;
+      padding: 28px;
+      background: #f8f9fc;
+      border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      position: relative;
+    }
+
+    .page-item:hover {
+      background: #eef2ff;
+      transform: translateX(8px);
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+    }
+
+    .page-item h4 {
+      color: #667eea;
+      margin-bottom: 12px;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+    }
+
+    .page-item p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* ===== RESTRICTIONS ===== */
+    .restrictions {
+      background: white;
+      padding: 60px 50px;
+      border-radius: 20px;
+      margin: 120px 0;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+      animation: fadeIn 1s ease-out 1s both;
+    }
+
+    .restrictions h2 {
+      color: #764ba2;
+      font-family: 'Poppins', sans-serif;
+      font-size: 40px;
+      margin-bottom: 50px;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .restriction-item {
+      margin-bottom: 25px;
+      padding: 25px 30px;
+      background: #fafbff;
+      border-radius: 12px;
+      border-left: 5px solid #764ba2;
+      transition: all 0.3s ease;
+    }
+
+    .restriction-item:hover {
+      background: #f3f1ff;
+      box-shadow: 0 8px 25px rgba(118, 75, 162, 0.1);
+      transform: translateX(5px);
+    }
+
+    .restriction-item h4 {
+      color: #764ba2;
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .restriction-item p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+      padding: 50px 30px;
+      margin-top: 120px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      animation: fadeIn 1s ease-out 1.2s both;
+    }
+
+    footer p {
+      margin: 10px 0;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    footer p strong {
+      color: white;
+      font-weight: 700;
+    }
+
+    footer p.copyright {
+      font-size: 13px;
+      opacity: 0.75;
+      margin-top: 20px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .landing-container {
+        padding: 40px 20px;
+      }
+
+      header {
+        margin-bottom: 60px;
+        padding-top: 40px;
+      }
+
+      header h1 {
+        font-size: 42px;
+        margin-bottom: 12px;
+      }
+
+      header .tagline {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      header .subtitle {
+        font-size: 15px;
+        margin-bottom: 30px;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px 30px;
+      }
+
+      .trust-badges {
+        gap: 15px;
+        margin-top: 35px;
+      }
+
+      .how-it-works {
+        padding: 50px 30px;
+        margin: 80px 0;
+      }
+
+      .how-it-works h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      .pages-info {
+        padding: 40px 25px;
+        margin: 80px 0;
+      }
+
+      .pages-info h2 {
+        font-size: 28px;
+        margin-bottom: 35px;
+      }
+
+      .restrictions {
+        padding: 40px 25px;
+        margin: 80px 0;
+      }
+
+      .restrictions h2 {
+        font-size: 28px;
+        margin-bottom: 35px;
+      }
+
+      .features {
+        gap: 25px;
+        margin-top: 60px;
+      }
+
+      .feature-card {
+        padding: 30px 20px;
+      }
+
+      footer p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      header .tagline {
+        font-size: 16px;
+      }
+
+      header .subtitle {
+        font-size: 14px;
+        margin-bottom: 25px;
+      }
+
+      .how-it-works h2 {
+        font-size: 24px;
+      }
+
+      .step-number {
+        font-size: 40px;
+      }
+
+      .pages-info h2,
+      .restrictions h2 {
+        font-size: 24px;
+      }
+
+      .feature-icon {
+        font-size: 42px;
+      }
+
+      .feature-card h3 {
+        font-size: 18px;
+      }
+
+      .trust-badges {
+        font-size: 12px;
+      }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-container">
+    <!-- HEADER -->
+    <header>
+      <h1>Ugazo Premium</h1>
+      <p class="tagline">Sophisticated Global Connections</p>
+      <p class="subtitle">An exclusive platform for accomplished professionals seeking meaningful relationships across continents</p>
+      
+      <div class="cta-buttons">
+        <a href="/#/signup" class="btn btn-primary">Start Your Journey</a>
+        <a href="/#/login" class="btn btn-secondary">Sign In</a>
+      </div>
+
+      <div class="trust-badges">
+        <div class="badge">✓ 18+ Verification</div>
+        <div class="badge">✓ Privacy Protected</div>
+        <div class="badge">✓ Verified Profiles</div>
+        <div class="badge">✓ Secure Payments</div>
+      </div>
+    </header>
+
+    <!-- FEATURES -->
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">👤</div>
+        <h3>Premium Profiles</h3>
+        <p>Create a sophisticated profile showcasing your best photos, videos, and authentic personality to attract compatible matches</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">💝</div>
+        <h3>Express Interest</h3>
+        <p>Send meaningful love requests to profiles that captivate you with a personalized approach to connections</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📸</div>
+        <h3>Rich Media Gallery</h3>
+        <p>Explore curated photo and video collections from like-minded individuals with crystal-clear media quality</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Maximum Privacy</h3>
+        <p>Your email and sensitive information remain completely private with enterprise-grade encryption protection</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Global Community</h3>
+        <p>Connect with accomplished professionals across Africa and Europe for transcontinental relationships</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Intelligent Matching</h3>
+        <p>Our algorithm intelligently filters compatible matches based on preferences, location, and verified information</p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-it-works">
+      <h2>Your Journey Starts Here</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Create Account</h4>
+          <p>Register with verified information and age confirmation for a trusted community</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Build Profile</h4>
+          <p>Upload photos and craft a compelling bio that reflects your authentic personality</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Discover</h4>
+          <p>Browse curated profiles and media from verified members in your region</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>Connect</h4>
+          <p>Send love requests to members who align with your values and interests</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <h4>Build Relationships</h4>
+          <p>Match and connect with compatible individuals for meaningful conversations</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLATFORM PAGES -->
+    <div class="pages-info">
+      <h2>Explore Our Platform</h2>
+      <div class="pages-grid">
+        <div class="page-item">
+          <h4>🏠 Dashboard</h4>
+          <p>Your personal hub with account overview, feature access, and our comprehensive terms & conditions</p>
+        </div>
+
+        <div class="page-item">
+          <h4>📸 Media Gallery</h4>
+          <p>Browse stunning photos and auto-playing videos from verified members with superior quality controls</p>
+        </div>
+
+        <div class="page-item">
+          <h4>🔍 Search & Discover</h4>
+          <p>Intelligently filtered profiles matching your preferences. Express interest with premium love requests</p>
+        </div>
+
+        <div class="page-item">
+          <h4>👤 Profile Viewer</h4>
+          <p>Comprehensive profile viewing with photo galleries, verified information, and secure interaction options</p>
+        </div>
+
+        <div class="page-item">
+          <h4>💳 Secure Payments</h4>
+          <p>Premium love requests processed through Stripe. €50 per request with exclusive exemption codes available</p>
+        </div>
+
+        <div class="page-item">
+          <h4>✅ Match System</h4>
+          <p>When both parties match, secure connections are established for authentic conversations and relationships</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- GUIDELINES -->
+    <div class="restrictions">
+      <h2>Platform Guidelines</h2>
+      
+      <div class="restriction-item">
+        <h4>👩 Female Members from Africa</h4>
+        <p>We welcome accomplished women from Uganda and across Africa. All members must be 18+ years of age with verified identity</p>
+      </div>
+
+      <div class="restriction-item">
+        <h4>👨 Male Members from Europe</h4>
+        <p>We welcome professional men from European nations. All members must be 18+ years of age with verified credentials</p>
+      </div>
+
+      <div class="restriction-item">
+        <h4>💝 Love Request System</h4>
+        <p>Male members send love requests (€50 per request). Female members review and accept or reject.</p>
+      </div>
+
+      <div class="restriction-item">
+        <h4>🔒 Privacy & Security</h4>
+        <p>Email addresses are never publicly displayed. Only verified information and photos are visible in member profiles</p>
+      </div>
+
+      <div class="restriction-item">
+        <h4>📋 Terms & Conditions</h4>
+        <p>All members must accept comprehensive terms covering safety, conduct, privacy policies, and community standards</p>
+      </div>
+
+      <div class="restriction-item">
+        <h4>🛡️ Account Protection</h4>
+        <p>Use strong passwords, enable security features, and report suspicious activity immediately to our support team</p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <p><strong>Ugazo Premium</strong> — Where Continents Connect</p>
+      <p>© 2026 Ugazo Dating Platform. All rights reserved.</p>
+      <p class="copyright">Secure • Verified • Meaningful Connections</p>
+    </footer>
+  </div>
+</body>
+</html>

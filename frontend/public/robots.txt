@@ -1,0 +1,19 @@
+# Ugazo Website Sitemap
+# This helps search engines crawl and index all pages
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay
+Crawl-delay: 1
+
+Sitemap: https://ugazo.com/sitemap.xml
